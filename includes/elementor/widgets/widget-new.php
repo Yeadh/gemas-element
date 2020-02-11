@@ -60,10 +60,11 @@ class gemas_Widget_New extends Widget_Base {
 		<div class="product-thumb-wrap">
       <ul>
   		<?php
-          while ( $products->have_posts() ) : $products->the_post(); ?>
+          while ( $products->have_posts() ) : $products->the_post();
+           $categories = get_the_category();  ?>
           <li>
-              <a class="site-preview" href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>" data-preview-url="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>"
-                  data-item-cost="<?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?>" data-item-category="Site Template" data-item-author="Gemas" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'gemas_sub_title', 1 ) ) ?>">
+              <a class="site-preview" href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'gemas-75x75') ?>" data-preview-url="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>"
+                  data-item-cost="<?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?>" data-item-category="<?php echo esc_html( $categories[0]->name );  print_r($categories)?>" data-item-author="Gemas" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'gemas_sub_title', 1 ) ) ?>">
               </a>
           </li>
           <?php endwhile; wp_reset_postdata(); ?>
