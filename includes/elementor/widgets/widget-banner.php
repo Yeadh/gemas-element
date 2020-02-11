@@ -4,14 +4,14 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // Banner Parallax
-class gemas_Widget_Banner2 extends Widget_Base {
+class gemas_Widget_banner extends Widget_Base {
  
    public function get_name() {
-      return 'banner2';
+      return 'banner';
    }
  
    public function get_title() {
-      return esc_html__( 'Banner 2', 'gemas' );
+      return esc_html__( 'Banner', 'gemas' );
    }
  
    public function get_icon() { 
@@ -38,7 +38,7 @@ class gemas_Widget_Banner2 extends Widget_Base {
           'label' => __( 'Banner image', 'gemas' ),
           'type' => \Elementor\Controls_Manager::MEDIA,
           'default' => [
-            'url' => get_template_directory_uri().'/images/slider_bg02.jpg',
+            'url' => get_template_directory_uri().'/images/slider_bg.jpg',
           ],
         ]
       );
@@ -48,7 +48,7 @@ class gemas_Widget_Banner2 extends Widget_Base {
          [
             'label' => __( 'Title', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Let\'s Start. Digital Marketplace for Themes & Plugins','gemas')
+            'default' => __('We Make Creative Market','gemas')
          ]
       );
 
@@ -57,7 +57,7 @@ class gemas_Widget_Banner2 extends Widget_Base {
          [
             'label' => __( 'Description', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('New Products on the Marketplace.Your dream site download!','gemas')
+            'default' => __('Find technology or people for digital projects in public sector. Find an individual specialist. eg a developer or user researcher.','gemas')
          ]
       );
 
@@ -69,31 +69,36 @@ class gemas_Widget_Banner2 extends Widget_Base {
     // get our input from the widget settings.
     $settings = $this->get_settings_for_display(); ?>
 
-      <section class="slider-area s-slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-xl-10">
-                      <div class="slider-content s-slider-content text-center mb-45">
-                          <h2><?php echo $settings['title'] ?></h2>
-                          <p><?php echo esc_html( $settings['description'] ) ?></p>
+    <!-- slider-area -->
+    <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>);">
+      <div class="slider-shape"><img src="<?php echo get_template_directory_uri(); ?>/images/slider_shape01.png" alt="img"></div>
+      <div class="slider-shape s-shape2"><img src="<?php echo get_template_directory_uri(); ?>/images/slider_shape02.png" alt="img"></div>
+      <div class="slider-shape s-shape3"><img src="<?php echo get_template_directory_uri(); ?>/images/slider_shape03.png" alt="img"></div>
+      <div class="container-fluid slider-container">
+          <div class="slider-wrap">
+              <div class="row align-items-center">
+                  <div class="col-lg-6">
+                      <div class="slider-content">
+                          <h2 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $settings['title'] ?></h2>
+                          <p class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html( $settings['description'] ) ?></p>
+                          <a href="#" class="btn wow fadeInUp" data-wow-delay="0.4s">Browse Projects</a>
                       </div>
                   </div>
-              </div>
-              <div class="row justify-content-center">
-                  <div class="col-xl-8 col-lg-10">
-                      <div class="s-slider-search-form">
-                        <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                        <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
-                        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field" placeholder="<?php echo esc_attr__( 'Search what your need...', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-                        <button type="submit" ><i class="fas fa-search"></i></button>
-                        <input type="hidden" name="post_type" value="product" />
-                      </form>
+                  <div class="col-lg-6">
+                      <div class="slider-img fix text-right wow fadeInRight" data-wow-delay="0.6s">
+                          <img src="<?php echo get_template_directory_uri(); ?>/images/slider_img02.png" class="slider-img2" alt="">
+                          <img src="<?php echo get_template_directory_uri(); ?>/images/slider_img01.jpg" alt="">
                       </div>
                   </div>
               </div>
           </div>
-      </section>
+        </div>
+        <div class="slider-img-ellipse"><img src="img/slider/slider_img_ellipse.png" class="rotateme" alt=""></div>
+        <div class="slider-bottom-shape"><img src="img/slider/slider_bottom_shape.png" class="rotateme" alt=""></div>
+    </section>
+    <!-- slider-area-end -->
+
     <?php }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new gemas_Widget_Banner2 );
+Plugin::instance()->widgets_manager->register_widget_type( new gemas_Widget_banner );
