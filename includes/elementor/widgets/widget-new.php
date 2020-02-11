@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // Product
-class gemas_Widget_free extends Widget_Base {
+class gemas_Widget_New extends Widget_Base {
  
    public function get_name() {
-      return 'freeproduct';
+      return 'newproduct';
    }
  
    public function get_title() {
-      return esc_html__( 'free products', 'gemas' );
+      return esc_html__( 'New products', 'gemas' );
    }
  
    public function get_icon() { 
@@ -35,7 +35,7 @@ class gemas_Widget_free extends Widget_Base {
          [
             'label' => __( 'Post per page', 'gemas' ),
             'type' => \Elementor\Controls_Manager::NUMBER,
-            'default' => 3,
+            'default' => 10,
             'min' => 5,
             'max' => 100,
             'step' => 1
@@ -52,33 +52,25 @@ class gemas_Widget_free extends Widget_Base {
       $settings = $this->get_settings_for_display();
 
         $products = new \WP_Query( array( 
-          'post_type' => 'product',
-		  'product_cat' => 'free',	
-		  'posts_per_page' => $settings['ppp'],
+        'post_type' => 'product',
+  		  'posts_per_page' => $settings['ppp'],
         ));
 	   
         global $product;?>
-		<div class="row">
-		<?php
-        while ( $products->have_posts() ) : $products->the_post(); ?>
-
-		   <div class="col-lg-4 col-md-6">
-				<div class="single-product-item mb-30">
-					<div class="product-img">
-						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('gemas-405x506') ?></a>
-					</div>
-					<div class="product-overlay">
-						<h5><a href="<?php the_permalink() ?>"><?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'gemas_sub_title', 1 ) ) ?></a></h5>
-						<span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span>
-					</div>
-				</div>
-			</div>
-			
-        <?php endwhile; wp_reset_postdata(); ?>
-			
-		</div>
+		<div class="product-thumb-wrap">
+      <ul>
+  		<?php
+          while ( $products->have_posts() ) : $products->the_post(); ?>
+          <li>
+              <a class="site-preview" href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>" data-preview-url="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>"
+                  data-item-cost="<?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?>" data-item-category="Site Template" data-item-author="Gemas" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'gemas_sub_title', 1 ) ) ?>">
+              </a>
+          </li>
+          <?php endwhile; wp_reset_postdata(); ?>
+  		</ul>
+    </div>
       <?php
    }
  
 }
-Plugin::instance()->widgets_manager->register_widget_type( new gemas_Widget_free );
+Plugin::instance()->widgets_manager->register_widget_type( new gemas_Widget_New );

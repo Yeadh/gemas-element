@@ -44,6 +44,28 @@ class gemas_Widget_banner extends Widget_Base {
       );
 
       $this->add_control(
+      'banner_circle',
+        [
+          'label' => __( 'Circle image', 'gemas' ),
+          'type' => \Elementor\Controls_Manager::MEDIA,
+          'default' => [
+            'url' => get_template_directory_uri().'/images/slider_img02.png',
+          ],
+        ]
+      );
+
+      $this->add_control(
+      'banner_square',
+        [
+          'label' => __( 'Screenshot', 'gemas' ),
+          'type' => \Elementor\Controls_Manager::MEDIA,
+          'default' => [
+            'url' => get_template_directory_uri().'/images/slider_img01.png',
+          ],
+        ]
+      );
+
+      $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'gemas' ),
@@ -86,15 +108,15 @@ class gemas_Widget_banner extends Widget_Base {
                   </div>
                   <div class="col-lg-6">
                       <div class="slider-img fix text-right wow fadeInRight" data-wow-delay="0.6s">
-                          <img src="<?php echo get_template_directory_uri(); ?>/images/slider_img02.png" class="slider-img2" alt="">
-                          <img src="<?php echo get_template_directory_uri(); ?>/images/slider_img01.jpg" alt="">
+                          <img src="<?php echo esc_url($settings['banner_circle']['url']) ?>" class="slider-img2" alt="">
+                          <img src="<?php echo esc_url($settings['banner_square']['url']) ?>" alt="">
                       </div>
                   </div>
               </div>
           </div>
         </div>
-        <div class="slider-img-ellipse"><img src="img/slider/slider_img_ellipse.png" class="rotateme" alt=""></div>
-        <div class="slider-bottom-shape"><img src="img/slider/slider_bottom_shape.png" class="rotateme" alt=""></div>
+        <div class="slider-img-ellipse"><img src="<?php echo get_template_directory_uri(); ?>/images/slider_img_ellipse.png" class="rotateme" alt=""></div>
+        <div class="slider-bottom-shape"><img src="<?php echo get_template_directory_uri(); ?>/images/slider_bottom_shape.png" class="rotateme" alt=""></div>
     </section>
     <!-- slider-area-end -->
 
