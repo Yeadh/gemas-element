@@ -26,70 +26,79 @@ class gemas_Widget_Service extends Widget_Base {
       $this->start_controls_section(
          'service_section',
          [
-            'label' => esc_html__( 'Service Item', 'gemas' ),
+            'label' => esc_html__( 'Service section', 'gemas' ),
             'type' => Controls_Manager::SECTION,
          ]
       );
-
       $this->add_control(
-         'style',
+         'sub-title',
          [
-            'label' => __( 'Service Style', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'style1',
-            'options' => [
-               'style1'  => __( 'Style 1', 'gemas' ),
-               'style2' => __( 'Style 2', 'gemas' ),
-            ],
+            'label' => __( 'Sub Title', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __('exclusive service','gemas')
          ]
       );
 
-      $this->add_control(
-         'icon',
-         [
-            'label' => __( 'Icon', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-               'url' => \Elementor\Utils::get_placeholder_image_src(),
-            ],
-         ]     
-      );
 
       $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Awesome Design','gemas'),
+            'default' => __('Why Chose Us','gemas')
          ]
       );
+
 
       $this->add_control(
          'text',
          [
             'label' => __( 'Text', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dummy text are used here so replace your app data, ipsum dummy text are used here so','gemas'),
+            'default' => __('Business plan template presented here will get you started. A standard business plan consists of a single document divided into several sections','gemas')
+         ]
+      );
+      
+      $repeater = new \Elementor\Repeater();
+
+      $repeater->add_control(
+         'image',
+         [
+            'label' => __( 'Choose icon', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'default' => [
+               'url' => \Elementor\Utils::get_placeholder_image_src()
+            ]
          ]
       );
 
-      $this->add_control(
-         'button',
+      $repeater->add_control(
+         'title',
          [
             'label' => __( 'Title', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Learn More','gemas'),
-            'condition' => ['style' => 'style1']
+            'default' => __( 'Secure Transaction Custo Traffic generation', 'gemas' ),
          ]
       );
 
-      $this->add_control(
-         'url',
+      $repeater->add_control(
+         'desc',
          [
-            'label' => __( 'Title', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#',
-            'condition' => ['style' => 'style1']
+            'label' => __( 'Description', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __( 'Annual Performance Statistics that Report provides detailed statistical information our performance stakeh.', 'gemas' ),
+         ]
+      );
+
+
+      $this->add_control(
+         'service_list',
+         [
+            'label' => __( 'service List', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $repeater->get_controls(),
+            'title_field' => '{{title}}',
+
          ]
       );
 
@@ -101,17 +110,39 @@ class gemas_Widget_Service extends Widget_Base {
        
       $settings = $this->get_settings_for_display();?>
 
-      <div class="single-services mb-30">
-          <div class="services-icon mb-30">
-              <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
+      <!-- services-area -->
+      <section class="services-area gray-bg pt-120 pb-90">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-xl-8 col-lg-9">
+                      <div class="section-title text-center mb-65">
+                          <span><?php echo esc_html($settings['sub-title']); ?></span>
+                          <h2><?php echo esc_html($settings['title']); ?></h2>
+                          <p><?php echo esc_html($settings['text']); ?></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="services-wrap">
+                  <div class="row">
+                     <?php foreach (  $settings['service_list'] as $service_single ): ?>
+                      <div class="col-lg-4 col-md-6">
+                          <div class="services-box mb-30">
+                              <div class="services-box-head">
+                                  <img src="<?php echo esc_html($service_single['image']['url']); ?>" alt="<?php echo esc_attr($service_single['title']); ?>">
+                                  <h4><?php echo esc_html($service_single['title']); ?></h4>
+                              </div>
+                              <div class="services-box-content">
+                                  <p><?php echo esc_html($service_single['desc']); ?></p>
+                              </div>
+                              <div class="services-overlay-icon"><img src="<?php echo esc_html($service_single['image']['url']); ?>" alt="<?php echo esc_attr($service_single['title']); ?>"></div>
+                          </div>
+                      </div>
+                     <?php endforeach; ?>
+                  </div>
+              </div>
           </div>
-          <div class="services-content">
-              <h4><?php echo esc_html($settings['title']); ?></h4>
-              <p><?php echo esc_html($settings['text']); ?></p>
-          </div>
-      </div>
-
-      
+      </section>
+      <!-- services-area-end --> 
 
       <?php
    }

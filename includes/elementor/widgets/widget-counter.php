@@ -31,6 +31,18 @@ class gemas_Widget_Counter extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
+      
+
+      $this->add_control(
+      'bg_image',
+        [
+          'label' => __( 'Background image', 'gemas' ),
+          'type' => \Elementor\Controls_Manager::MEDIA,
+          'default' => [
+            'url' => get_template_directory_uri().'/images/fact_bg.jpg',
+          ],
+        ]
+      );
 
       $counter = new \Elementor\Repeater();
 
@@ -80,25 +92,27 @@ class gemas_Widget_Counter extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <section class="counter-area inner-counter-bg counter-bg pt-80 pb-60">
-         <div class="container">
-           <div class="row">
-            <?php foreach (  $settings['counter'] as $counter_single ): ?>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="single-counter text-center mb-50">
-                       <div class="counter-icon">
-                           <img src="<?php echo $counter_single['icon']['url'] ?>" alt="img">
-                       </div>
-                       <div class="counter-content">
-                           <h2 class="countt"><?php echo $counter_single['count'] ?></h2>
-                           <span><?php echo $counter_single['title'] ?></span>
-                       </div>
-                   </div>
-               </div>
-            <?php endforeach; ?>
-           </div>
-         </div>
-      </section>
+      <!-- fact-area -->
+        <section class="fact-area fact-bg pt-120 pb-90" style="background-image: url(<?php echo esc_url($settings['bg_image']['url']) ?>);">
+            <div class="container">
+                <div class="row">
+                  <?php foreach (  $settings['counter'] as $counter_single ): ?>
+                    <div class="col-lg-3 col-ms-4 col-sm-6">
+                        <div class="fact-box mb-30">
+                            <div class="fact-icon mb-25">
+                                <img src="img/icon/fact_icon01.png" alt="">
+                            </div>
+                            <div class="fact-box-content">
+                                <h4 class="count"><?php echo $counter_single['count'] ?></h4>
+                                <span><?php echo $counter_single['title'] ?></span>
+                            </div>
+                        </div>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+        <!-- fact-area-end -->
 
       <?php
    }
