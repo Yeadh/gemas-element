@@ -39,20 +39,33 @@ class gemas_Widget_Searchbox extends Widget_Base {
       // get our input from the widget settings.
        
       $settings = $this->get_settings_for_display();?>
-      <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-           <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
-           <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
-         <?php
-           $makplus_cat_dropdown_args = array(
-               'show_option_all' => __( 'Any Category' ),
-               'taxonomy' => 'product_cat',
-               'class' => 'selected',
-             );
-           wp_dropdown_categories( $makplus_cat_dropdown_args );
-         ?>
-         <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
-         <input type="hidden" name="post_type" value="product" />
-       </form>
+
+      <!-- search-area -->
+      <div class="gemas-search">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="gemas-search-box">
+                          <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+                              <?php
+                              $makplus_cat_dropdown_args = array(
+                               'show_option_all' => __( 'Any Category' ),
+                               'taxonomy' => 'product_cat',
+                               'class' => 'custom-select',
+                              );
+                              wp_dropdown_categories( $makplus_cat_dropdown_args );
+                              ?>
+                              <input type="text" placeholder="Type and Hit Enter...">
+                              <button type="submit" ><i class="fas fa-search"></i></button>
+                              <input type="hidden" name="post_type" value="product" />
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- search-area-end -->
+
 
       <?php
    }
