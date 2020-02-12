@@ -50,7 +50,7 @@ class gemas_Widget_Feature extends Widget_Base {
          'sub-title',
          [
             'label' => __( 'Sub Title', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'type' => \Elementor\Controls_Manager::TEXT,
             'default' => __('What We do','gemas')
          ]
       );

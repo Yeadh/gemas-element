@@ -100,11 +100,11 @@ class gemas_Widget_Counter extends Widget_Base {
                     <div class="col-lg-3 col-ms-4 col-sm-6">
                         <div class="fact-box mb-30">
                             <div class="fact-icon mb-25">
-                                <img src="img/icon/fact_icon01.png" alt="">
+                                <img src="<?php echo esc_url( $counter_single['icon']['url'] ) ?>" alt="<?php echo esc_attr( $counter_single['count'] ) ?>">
                             </div>
                             <div class="fact-box-content">
-                                <h4 class="count"><?php echo $counter_single['count'] ?></h4>
-                                <span><?php echo $counter_single['title'] ?></span>
+                                <h4 class="count"><?php echo esc_html( $counter_single['count'] ) ?></h4>
+                                <span><?php echo esc_html( $counter_single['title'] ) ?></span>
                             </div>
                         </div>
                     </div>
