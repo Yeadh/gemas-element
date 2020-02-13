@@ -32,6 +32,39 @@ class gemas_Widget_Testimonials extends Widget_Base {
          ]
       );
 
+      $this->add_control(
+         'title',
+         [
+            'label' => __( 'Title', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('Feedback From our clients.','gemas')
+         ]
+      );
+
+      $partner = new \Elementor\Repeater();
+
+      $partner->add_control(
+         'image',
+         [
+            'label' => __( 'Choose Photo', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'default' => [
+               'url' => \Elementor\Utils::get_placeholder_image_src()
+            ],
+         ]
+      );
+
+      $this->add_control(
+         'partner_list',
+         [
+            'label' => __( 'Partner List', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $partner->get_controls()
+
+         ]
+      );
+
+
       $repeater = new \Elementor\Repeater();
 
       $repeater->add_control(
@@ -111,34 +144,67 @@ class gemas_Widget_Testimonials extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-        <div class="row testimonial-active">
-          <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-          <div class="col-xl-6">
-              <div class="single-testimonial">
-                  <div class="testi-avatar text-center">
-                      <div class="t-avatar-img">
-                          <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+
+       <div class="area-wrapper black-bg position-relative">
+
+          <!-- brand-area -->
+          <section class="brand-area pt-120">
+              <div class="container">
+                  <div class="brand-wrap">
+                      <div class="row no-gutters justify-content-center">
+
+                          <?php foreach (  $settings['partner_list'] as $partner_single ): ?>
+                          <div class="brand-item">
+                              <img src="<?php echo esc_url( $partner_single['image']['url'] ); ?>" alt="">
+                          </div>
+                          <?php endforeach; ?>
                       </div>
-                      <div class="testi-quote">
-                          <i class="fas fa-quote-right"></i>
-                      </div>
-                  </div>
-                  <div class="testi-content">
-                      <div class="testi-rating mb-10">
-                          <?php for ($i = 1; $i <= $testimonial_single['rating']; $i++) {
-                            echo '<i class="fas fa-star"></i>';
-                          } ?>
-                      </div>
-                      <div class="t-avatar-info mb-20">
-                          <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
-                          <span><?php echo esc_html($testimonial_single['designation']); ?></span>
-                      </div>
-                      <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
                   </div>
               </div>
-          </div>
-          <?php endforeach; ?>
-        </div>
+          </section>
+          <!-- brand-area-end -->
+
+          <!-- testimonial-area -->
+          <section class="testimonial-area pt-115 pb-140">
+              <div class="container">
+                  <div class="testi-wrap">
+                      <div class="row">
+                          <div class="col-lg-5">
+                              <div class="section-title">
+                                  <h2><?php echo esc_html($settings['title']); ?></h2>
+                              </div>
+                              <div class="testi-quote">
+                                  <img src="img/icon/testi_quote01.png" alt="">
+                              </div>
+                          </div>
+                          <div class="col-lg-7">
+                              <div class="testimonial-active">
+                                  <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                                  <div class="testimonial-item">
+                                      <div class="testi-content">
+                                          <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
+                                      </div>
+                                      <div class="testi-avatar">
+                                          <div class="testi-avatar-img">
+                                              <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+                                          </div>
+                                          <div class="testi-avatar-info">
+                                              <span>- <?php echo esc_html($testimonial_single['name']); ?>, <?php echo esc_html($testimonial_single['designation']); ?></span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <?php endforeach; ?>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="testimonial-small-quote"><img src="<?php echo get_template_directory_uri(); ?>/images/testi_quote02.png" alt=""></div>
+                  </div>
+              </div>
+          </section>
+          <!-- testimonial-area-end -->
+
+          <div class="testi-bg-shape"><img src="<?php echo get_template_directory_uri(); ?>/images/testi_shape.png" class="rotateme" alt=""></div>
+      </div>
 
    <?php } 
  
