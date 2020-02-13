@@ -83,7 +83,7 @@ class gemas_Widget_Testimonials extends Widget_Base {
          [
             'label' => __( 'Name', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __( 'Emaley Mcculloch', 'gemas' ),
+            'default' => __( 'Alexander Graham Bell', 'gemas' ),
             
          ]
       );
@@ -93,7 +93,7 @@ class gemas_Widget_Testimonials extends Widget_Base {
          [
             'label' => __( 'Designation', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __( 'Founder ceo', 'gemas' ),
+            'default' => __( 'CEO ot Google', 'gemas' ),
          ]
       );
 
@@ -102,7 +102,7 @@ class gemas_Widget_Testimonials extends Widget_Base {
          [
             'label' => __( 'Testimonial', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __( 'In promotion and of advertising testimonial show consiss of a person\'s written orsoken statement extollig the virtue', 'gemas' ),
+            'default' => __( 'In promotion and of advertisin testimonial or show consists of a person\'s written or spoken statement that extolling the virtue of a product The term - Testimonial', 'gemas' ),
          ]
       );
 
@@ -174,7 +174,7 @@ class gemas_Widget_Testimonials extends Widget_Base {
                                   <h2><?php echo esc_html($settings['title']); ?></h2>
                               </div>
                               <div class="testi-quote">
-                                  <img src="img/icon/testi_quote01.png" alt="">
+                                  <img src="<?php echo get_template_directory_uri(); ?>/images/testi_quote01.png" alt="">
                               </div>
                           </div>
                           <div class="col-lg-7">
