@@ -97,7 +97,7 @@ class gemas_Widget_Blog extends Widget_Base {
                               <p><?php echo wp_trim_words( get_the_content(), 16, '.' ); ?></p>
                               <div class="blog-post-avatar">
                                   <div class="blog-avatar-img">
-                                      <img src="img/blog/blog_avatar_img.png" alt="">
+                                      <?php echo get_avatar( get_the_author_meta( 'ID' ), '29'); ?>
                                   </div>
                                   <div class="blog-avatar-info">
                                       <a href="#">- <?php the_author() ?></a>
