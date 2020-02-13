@@ -44,8 +44,6 @@ class gemas_Widget_Feature extends Widget_Base {
         ]
       );
 
-
-
       $this->add_control(
          'sub-title',
          [
@@ -64,8 +62,6 @@ class gemas_Widget_Feature extends Widget_Base {
             'default' => __('Lowest Pricing Available Online or Brand Themes Products Time','gemas')
          ]
       );
-
-
 
       $this->add_control(
          'text',
