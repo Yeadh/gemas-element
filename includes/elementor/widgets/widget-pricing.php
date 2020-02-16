@@ -149,8 +149,8 @@ class gemas_Widget_Pricing extends Widget_Base {
               <div class="row justify-content-between ct-pricing">
                   <div class="col-xl-5 col-lg-6">
                       <div class="section-title mb-50">
-                          <span>pricing strategy</span>
-                          <h2>Gemas Will Offer <br> Price for Your Business!</h2>
+                          <span><?php echo esc_html($settings['sub-title']); ?></span>
+                          <h2><?php echo $settings['title']; ?></h2>
                       </div>
                       <div class="pricing-content">
                           <p>Business plan template presented here will get you started. A standard business plan consists of a single.</p>
