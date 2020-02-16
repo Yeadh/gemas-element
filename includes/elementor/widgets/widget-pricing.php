@@ -143,6 +143,105 @@ class gemas_Widget_Pricing extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
+      <!-- pricing-area -->
+      <section class="pricing-area pt-120 pb-120">
+          <div class="container">
+              <div class="row justify-content-between ct-pricing">
+                  <div class="col-xl-5 col-lg-6">
+                      <div class="section-title mb-50">
+                          <span>pricing strategy</span>
+                          <h2>Gemas Will Offer <br> Price for Your Business!</h2>
+                      </div>
+                      <div class="pricing-content">
+                          <p>Business plan template presented here will get you started. A standard business plan consists of a single.</p>
+                          <p>The price can be set to maximize profitability for each unit sold or from the market overall. It can be used to defend
+                          an existing market from new entrants, to increase</p>
+                          <div class="item--pricing-nav"> <span class="item--nav-monthly">Monthly</span>
+                              <div class="item--nav"><div class="nav-bg"></div></div> <span class="item--nav-year">Yearly</span>
+                          </div>
+                          <form action="#" class="pricing-form">
+                              <input type="radio" id="trial">
+                              <label for="trial">or <span>Take 1 month free trial</span></label>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 position-relative">
+                      <div class="ct-pricing-body ct-pricing-monthly">
+                          <div class="ct-pricing-item item--first">
+                              <div class="item-popular">limited offer</div>
+                              <div class="ct-pricing-meta">
+                                  <div class="ct-pricing-meta-inner">
+                                      <h3 class="ct-pricing-title">Standard</h3>
+                                      <div class="ct-pricing-price">$17</div>
+                                  </div>
+                              </div>
+                              <ul class="item--feature">
+                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
+                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
+                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
+                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
+                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                              </ul>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                          </div>
+                          <div class="ct-pricing-item item--last">
+                              <div class="ct-pricing-meta">
+                                  <div class="ct-pricing-meta-inner">
+                                      <h3 class="ct-pricing-title">Standard</h3>
+                                      <div class="ct-pricing-price">$59</div>
+                                  </div>
+                              </div>
+                              <ul class="item--feature">
+                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
+                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
+                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
+                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
+                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                              </ul>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                          </div>
+                      </div>
+                      <div class="ct-pricing-body ct-pricing-year">
+                          <div class="ct-pricing-item item--first">
+                              <div class="item-popular">limited offer</div>
+                              <div class="ct-pricing-meta">
+                                  <div class="ct-pricing-meta-inner">
+                                      <h3 class="ct-pricing-title">Standard</h3>
+                                      <div class="ct-pricing-price">$99</div>
+                                  </div>
+                              </div>
+                              <ul class="item--feature">
+                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
+                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
+                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
+                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
+                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                              </ul>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                          </div>
+                          <div class="ct-pricing-item item--last">
+                              <div class="ct-pricing-meta">
+                                  <div class="ct-pricing-meta-inner">
+                                      <h3 class="ct-pricing-title">Standard</h3>
+                                      <div class="ct-pricing-price">$199</div>
+                                  </div>
+                              </div>
+                              <ul class="item--feature">
+                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
+                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
+                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
+                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
+                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                              </ul>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- pricing-area-end -->
+
 
       <div class="single-pricing text-center <?php if ( 'on' == $settings['recommended'] ){ echo"active"; }?>">
          <div class="pricing-head mb-25">
