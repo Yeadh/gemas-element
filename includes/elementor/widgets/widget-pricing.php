@@ -215,6 +215,142 @@ class gemas_Widget_Pricing extends Widget_Base {
          ]
       );
 
+      $feature_3 = new \Elementor\Repeater();
+
+      $feature_3->add_control(
+         'feature_3',
+         [
+            'label' => __( 'Feature', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __( '10 Free Domain Names', 'gemas' )
+         ]
+      );
+
+      $this->add_control(
+         'feature_list_3',
+         [
+            'label' => __( 'Feature List', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $feature_2->get_controls(),
+            'default' => [
+               [
+                  'feature_3' => __( 'Up to 5 Web Pages', 'gemas' )
+               ],
+               [
+                  'feature_3' => __( 'Single two theme optimization', 'gemas' )
+               ],
+               [
+                  'feature_3' => __( '1 year support & updates', 'gemas' )
+               ],
+               [
+                  'feature_3' => __( '20% Future Purchases', 'gemas' )
+               ],
+               [
+                  'feature_3' => __( '5 WordPress Theme', 'gemas' )
+               ]
+            ],
+            'title_field_3' => '{{{ feature_3 }}}',
+         ]
+      );
+
+      $this->add_control(
+         'btn_text_3',
+         [
+            'label' => __( 'button text', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Purchase Now',
+         ]
+      );
+
+      $this->add_control(
+         'btn_url_3',
+         [
+            'label' => __( 'button URL', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+         ]
+      );
+
+      $this->add_control(
+         'recommended_3',
+         [
+            'label' => __( 'Recommended', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'label_on' => __( 'On', 'gemas' ),
+            'label_off' => __( 'Off', 'gemas' ),
+            'return_value' => 'on',
+            'default' => 'off',
+         ]
+      );
+
+      $feature_4 = new \Elementor\Repeater();
+
+      $feature_4->add_control(
+         'feature_3',
+         [
+            'label' => __( 'Feature', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __( '10 Free Domain Names', 'gemas' )
+         ]
+      );
+
+      $this->add_control(
+         'feature_list_4',
+         [
+            'label' => __( 'Feature List', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $feature_2->get_controls(),
+            'default' => [
+               [
+                  'feature_4' => __( 'Up to 5 Web Pages', 'gemas' )
+               ],
+               [
+                  'feature_4' => __( 'Single two theme optimization', 'gemas' )
+               ],
+               [
+                  'feature_4' => __( '1 year support & updates', 'gemas' )
+               ],
+               [
+                  'feature_4' => __( '20% Future Purchases', 'gemas' )
+               ],
+               [
+                  'feature_4' => __( '5 WordPress Theme', 'gemas' )
+               ]
+            ],
+            'title_field_4' => '{{{ feature_3 }}}',
+         ]
+      );
+
+      $this->add_control(
+         'btn_text_4',
+         [
+            'label' => __( 'button text', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Purchase Now',
+         ]
+      );
+
+      $this->add_control(
+         'btn_url_4',
+         [
+            'label' => __( 'button URL', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+         ]
+      );
+
+      $this->add_control(
+         'recommended_4',
+         [
+            'label' => __( 'Recommended', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'label_on' => __( 'On', 'gemas' ),
+            'label_off' => __( 'Off', 'gemas' ),
+            'return_value' => 'on',
+            'default' => 'off',
+         ]
+      );
+
       $this->end_controls_section();
    }
 
@@ -256,11 +392,11 @@ class gemas_Widget_Pricing extends Widget_Base {
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
-                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                  <?php foreach( $settings['feature_list_1'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_1'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_1 ) ?>"><?php echo esc_html( $btn_text_1 ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
@@ -285,30 +421,30 @@ class gemas_Widget_Pricing extends Widget_Base {
                               <div class="item-popular"><?php echo esc_html__( 'limited offer','gemas' ) ?></div>
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_2']); ?></h3>
-                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_2']); ?></div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_3']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_3']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
-                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                  <?php foreach( $settings['feature_list_3'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_3'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_3 ) ?>"><?php echo esc_html( $btn_text_3 ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_2']); ?></h3>
-                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_2']); ?></div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_4']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_4']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                 <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
-                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                 <?php foreach( $settings['feature_list_4'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_4'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_4 ) ?>"><?php echo esc_html( $btn_text_4 ) ?></a></div>
                           </div>
                       </div>
 
