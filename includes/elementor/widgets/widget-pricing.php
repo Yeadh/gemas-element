@@ -33,11 +33,20 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
+         'subtitle',
+         [
+            'label' => __( 'Sub title', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'pricing strategy'
+         ]
+      );
+      
+      $this->add_control(
          'title',
          [
             'label' => __( 'title', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'Standard Plan'
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => 'Gemas Will Offer Price for Your Business!',
          ]
       );
 
@@ -45,31 +54,17 @@ class gemas_Widget_Pricing extends Widget_Base {
          'desc',
          [
             'label' => __( 'Description', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA
+            'type' => \Elementor\Controls_Manager::WYSIWYG,
+            'default' => __( 'Business plan template presented here will get you started. A standard business plan consists of a single.
+
+            The price can be set to maximize profitability for each unit sold or from the market overall. It can be used to defend an existing market from new entrants, to increase', 'gemas' ),
          ]
       );
 
-      $this->add_control(
-         'icon',
-         [
-            'label' => __( 'icon', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::MEDIA
-         ]
-      );
+      $feature_1 = new \Elementor\Repeater();
 
-      $this->add_control(
-         'price',
-         [
-            'label' => __( 'Price', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '70'
-         ]
-      );
-
-      $feature = new \Elementor\Repeater();
-
-      $feature->add_control(
-         'feature',
+      $feature_1->add_control(
+         'feature_1',
          [
             'label' => __( 'Feature', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
@@ -78,43 +73,43 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'feature_list',
+         'feature_list_1',
          [
             'label' => __( 'Feature List', 'gemas' ),
             'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $feature->get_controls(),
+            'fields' => $feature_1->get_controls(),
             'default' => [
                [
-                  'feature' => __( '5GB Storage Space', 'gemas' )
+                  'feature_1' => __( 'Up to 5 Web Pages', 'gemas' )
                ],
                [
-                  'feature' => __( '20GB Monthly Bandwidth', 'gemas' )
+                  'feature_1' => __( 'Single two theme optimization', 'gemas' )
                ],
                [
-                  'feature' => __( 'My SQL Databases', 'gemas' )
+                  'feature_1' => __( '1 year support & updates', 'gemas' )
                ],
                [
-                  'feature' => __( '100 Email Account', 'gemas' )
+                  'feature_1' => __( '20% Future Purchases', 'gemas' )
                ],
                [
-                  'feature' => __( '10 Free Domain Names', 'gemas' )
+                  'feature_1' => __( '5 WordPress Theme', 'gemas' )
                ]
             ],
-            'title_field' => '{{{ feature }}}',
+            'title_field_1' => '{{{ feature_1 }}}',
          ]
       );
 
       $this->add_control(
-         'btn_text',
+         'btn_text_1',
          [
             'label' => __( 'button text', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'Buy Now',
+            'default' => 'Purchase Now',
          ]
       );
 
       $this->add_control(
-         'btn_url',
+         'btn_url_1',
          [
             'label' => __( 'button URL', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
@@ -123,7 +118,93 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'recommended',
+         'recommended_1',
+         [
+            'label' => __( 'Recommended', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'label_on' => __( 'On', 'gemas' ),
+            'label_off' => __( 'Off', 'gemas' ),
+            'return_value' => 'on',
+            'default' => 'off',
+         ]
+      );
+
+      $this->add_control(
+         'package_2',
+         [
+            'label' => __( 'Package 1', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => 'Standard',
+         ]
+      );
+
+      $this->add_control(
+         'price_2',
+         [
+            'label' => __( 'Price', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '$17'
+         ]
+      );
+
+      $feature_2 = new \Elementor\Repeater();
+
+      $feature_2->add_control(
+         'feature_2',
+         [
+            'label' => __( 'Feature', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __( '10 Free Domain Names', 'gemas' )
+         ]
+      );
+
+      $this->add_control(
+         'feature_list_2',
+         [
+            'label' => __( 'Feature List', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $feature_2->get_controls(),
+            'default' => [
+               [
+                  'feature_2' => __( 'Up to 5 Web Pages', 'gemas' )
+               ],
+               [
+                  'feature_2' => __( 'Single two theme optimization', 'gemas' )
+               ],
+               [
+                  'feature_2' => __( '1 year support & updates', 'gemas' )
+               ],
+               [
+                  'feature_2' => __( '20% Future Purchases', 'gemas' )
+               ],
+               [
+                  'feature_2' => __( '5 WordPress Theme', 'gemas' )
+               ]
+            ],
+            'title_field_2' => '{{{ feature_2 }}}',
+         ]
+      );
+
+      $this->add_control(
+         'btn_text_2',
+         [
+            'label' => __( 'button text', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Purchase Now',
+         ]
+      );
+
+      $this->add_control(
+         'btn_url_2',
+         [
+            'label' => __( 'button URL', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+         ]
+      );
+
+      $this->add_control(
+         'recommended_2',
          [
             'label' => __( 'Recommended', 'gemas' ),
             'type' => \Elementor\Controls_Manager::SWITCHER,
@@ -149,121 +230,93 @@ class gemas_Widget_Pricing extends Widget_Base {
               <div class="row justify-content-between ct-pricing">
                   <div class="col-xl-5 col-lg-6">
                       <div class="section-title mb-50">
-                          <span><?php echo esc_html($settings['sub-title']); ?></span>
+                          <span><?php echo esc_html($settings['subtitle']); ?></span>
                           <h2><?php echo $settings['title']; ?></h2>
                       </div>
                       <div class="pricing-content">
-                          <p>Business plan template presented here will get you started. A standard business plan consists of a single.</p>
-                          <p>The price can be set to maximize profitability for each unit sold or from the market overall. It can be used to defend
-                          an existing market from new entrants, to increase</p>
-                          <div class="item--pricing-nav"> <span class="item--nav-monthly">Monthly</span>
-                              <div class="item--nav"><div class="nav-bg"></div></div> <span class="item--nav-year">Yearly</span>
+                          <p><?php echo $settings['desc']; ?></p>
+                          <div class="item--pricing-nav"> <span class="item--nav-monthly"><?php echo esc_html__( 'Monthly', 'digimarket' ) ?></span>
+                              <div class="item--nav"><div class="nav-bg"></div></div> <span class="item--nav-year"><?php echo esc_html__( 'Yearly', 'digimarket' ) ?></span>
                           </div>
                           <form action="#" class="pricing-form">
                               <input type="radio" id="trial">
-                              <label for="trial">or <span>Take 1 month free trial</span></label>
+                              <label for="trial"><?php echo esc_html__( 'or', 'digimarket' ) ?> <span><?php echo esc_html__( 'Take 1 month free trial', 'digimarket' ) ?></span></label>
                           </form>
                       </div>
                   </div>
                   <div class="col-lg-6 position-relative">
+
                       <div class="ct-pricing-body ct-pricing-monthly">
                           <div class="ct-pricing-item item--first">
-                              <div class="item-popular">limited offer</div>
+                              <div class="item-popular"><?php echo esc_html__( 'limited offer','gemas' ) ?></div>
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title">Standard</h3>
-                                      <div class="ct-pricing-price">$17</div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_1']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_1']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
-                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
-                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
-                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
-                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                                  <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                 <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title">Standard</h3>
-                                      <div class="ct-pricing-price">$59</div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_2']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_2']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
-                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
-                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
-                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
-                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                                  <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                 <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                              <div class="ct-pricing-button">
+                                 <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a>
+                              </div>
                           </div>
                       </div>
+
                       <div class="ct-pricing-body ct-pricing-year">
                           <div class="ct-pricing-item item--first">
-                              <div class="item-popular">limited offer</div>
+                              <div class="item-popular"><?php echo esc_html__( 'limited offer','gemas' ) ?></div>
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title">Standard</h3>
-                                      <div class="ct-pricing-price">$99</div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_2']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_2']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
-                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
-                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
-                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
-                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                                  <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                 <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
-                                      <h3 class="ct-pricing-title">Standard</h3>
-                                      <div class="ct-pricing-price">$199</div>
+                                      <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_2']); ?></h3>
+                                      <div class="ct-pricing-price"><?php echo esc_html($settings['price_2']); ?></div>
                                   </div>
                               </div>
                               <ul class="item--feature">
-                                  <li><i class="fas fa-check"></i>Up to 5 Web Pages</li>
-                                  <li><i class="fas fa-check"></i>Single two theme optimization</li>
-                                  <li><i class="fas fa-check"></i>1 year support & updates</li>
-                                  <li><i class="fas fa-check"></i>20% Future Purchases</li>
-                                  <li><i class="fas fa-check"></i>5 WordPress Theme</li>
+                                 <?php foreach( $settings['feature_list_2'] as $index => $feature ) { ?>
+                                    <li><i class="fas fa-check"></i><?php echo $feature['feature_2'] ?></li>
+                                 <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="#">Purchase Now</a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a></div>
                           </div>
                       </div>
+
                   </div>
               </div>
           </div>
       </section>
       <!-- pricing-area-end -->
-
-
-      <div class="single-pricing text-center <?php if ( 'on' == $settings['recommended'] ){ echo"active"; }?>">
-         <div class="pricing-head mb-25">
-             <div class="pricing-icon mb-40">
-                 <img src="<?php echo esc_url( $settings['icon']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
-             </div>
-             <h3><?php echo esc_html( $settings['title'] ); ?></h3>
-             <div class="price-count">
-                 <h4><?php echo $settings['price']; ?></h4>
-             </div>
-         </div>
-         <div class="pricing-list mb-30">
-             <ul>
-               <?php foreach( $settings['feature_list'] as $index => $feature ) { ?>
-                  <li><?php echo $feature['feature'] ?></li>
-               <?php } ?>
-             </ul>
-         </div>
-         <div class="pricing-btn">
-             <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?></a>
-         </div>
-      </div>
 
    <?php }
  
