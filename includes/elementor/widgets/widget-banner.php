@@ -106,7 +106,7 @@ class gemas_Widget_banner extends Widget_Base {
                           <a href="#" class="btn wow fadeInUp" data-wow-delay="0.4s">Browse Projects</a>
                       </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 d-none d-lg-block">
                       <div class="slider-img fix text-right wow fadeInRight" data-wow-delay="0.6s">
                           <img src="<?php echo esc_url($settings['banner_circle']['url']) ?>" class="slider-img2" alt="">
                           <img src="<?php echo esc_url($settings['banner_square']['url']) ?>" alt="">
