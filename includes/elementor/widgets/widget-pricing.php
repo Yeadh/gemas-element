@@ -61,6 +61,13 @@ class gemas_Widget_Pricing extends Widget_Base {
          ]
       );
 
+      $this->add_control(
+        'hr',
+        [
+          'type' => \Elementor\Controls_Manager::DIVIDER,
+        ]
+      );
+
       $feature_1 = new \Elementor\Repeater();
 
       $feature_1->add_control(
@@ -130,21 +137,28 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'package_2',
+         'package_1',
          [
-            'label' => __( 'Package 1', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'label' => __( 'Package', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
             'default' => 'Standard',
          ]
       );
 
       $this->add_control(
-         'price_2',
+         'price_1',
          [
             'label' => __( 'Price', 'gemas' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => '$17'
          ]
+      );
+
+      $this->add_control(
+        'hr2',
+        [
+          'type' => \Elementor\Controls_Manager::DIVIDER,
+        ]
       );
 
       $feature_2 = new \Elementor\Repeater();
@@ -204,16 +218,30 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'recommended_2',
+         'package_2',
          [
-            'label' => __( 'Recommended', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => __( 'On', 'gemas' ),
-            'label_off' => __( 'Off', 'gemas' ),
-            'return_value' => 'on',
-            'default' => 'off',
+            'label' => __( 'Package', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Standard',
          ]
       );
+
+      $this->add_control(
+         'price_2',
+         [
+            'label' => __( 'Price', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '$17'
+         ]
+      );
+
+      $this->add_control(
+        'hr3',
+        [
+          'type' => \Elementor\Controls_Manager::DIVIDER,
+        ]
+      );
+      
 
       $feature_3 = new \Elementor\Repeater();
 
@@ -283,6 +311,32 @@ class gemas_Widget_Pricing extends Widget_Base {
          ]
       );
 
+      $this->add_control(
+         'package_3',
+         [
+            'label' => __( 'Package', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Standard',
+         ]
+      );
+
+      $this->add_control(
+         'price_3',
+         [
+            'label' => __( 'Price', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '$17'
+         ]
+      );
+
+      $this->add_control(
+        'hr4',
+        [
+          'type' => \Elementor\Controls_Manager::DIVIDER,
+        ]
+      );
+      
+
       $feature_4 = new \Elementor\Repeater();
 
       $feature_4->add_control(
@@ -340,14 +394,20 @@ class gemas_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'recommended_4',
+         'package_4',
          [
-            'label' => __( 'Recommended', 'gemas' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => __( 'On', 'gemas' ),
-            'label_off' => __( 'Off', 'gemas' ),
-            'return_value' => 'on',
-            'default' => 'off',
+            'label' => __( 'Package', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => 'Standard',
+         ]
+      );
+
+      $this->add_control(
+         'price_4',
+         [
+            'label' => __( 'Price', 'gemas' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '$17'
          ]
       );
 
@@ -384,7 +444,9 @@ class gemas_Widget_Pricing extends Widget_Base {
 
                       <div class="ct-pricing-body ct-pricing-monthly">
                           <div class="ct-pricing-item item--first">
+                            <?php if (true == $settings['recommended_1']): ?>
                               <div class="item-popular"><?php echo esc_html__( 'limited offer','gemas' ) ?></div>
+                            <?php endif ?>                              
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
                                       <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_1']); ?></h3>
@@ -396,7 +458,7 @@ class gemas_Widget_Pricing extends Widget_Base {
                                     <li><i class="fas fa-check"></i><?php echo $feature['feature_1'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_1 ) ?>"><?php echo esc_html( $btn_text_1 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $settings['btn_url_1'] ) ?>"><?php echo esc_html( $settings['btn_text_1'] ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
@@ -411,14 +473,16 @@ class gemas_Widget_Pricing extends Widget_Base {
                                  <?php } ?>
                               </ul>
                               <div class="ct-pricing-button">
-                                 <a class="btn btn-default" href="<?php echo esc_url( $btn_url_2 ) ?>"><?php echo esc_html( $btn_text_2 ) ?></a>
+                                 <a class="btn btn-default" href="<?php echo esc_url( $settings['btn_url_2'] ) ?>"><?php echo esc_html( $settings['btn_text_2'] ) ?></a>
                               </div>
                           </div>
                       </div>
 
                       <div class="ct-pricing-body ct-pricing-year">
                           <div class="ct-pricing-item item--first">
+                              <?php if (true == $settings['recommended_3']): ?>
                               <div class="item-popular"><?php echo esc_html__( 'limited offer','gemas' ) ?></div>
+                            <?php endif ?>  
                               <div class="ct-pricing-meta">
                                   <div class="ct-pricing-meta-inner">
                                       <h3 class="ct-pricing-title"><?php echo esc_html($settings['package_3']); ?></h3>
@@ -430,7 +494,7 @@ class gemas_Widget_Pricing extends Widget_Base {
                                     <li><i class="fas fa-check"></i><?php echo $feature['feature_3'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_3 ) ?>"><?php echo esc_html( $btn_text_3 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $settings['btn_url_3'] ) ?>"><?php echo esc_html( $settings['btn_text_3'] ) ?></a></div>
                           </div>
                           <div class="ct-pricing-item item--last">
                               <div class="ct-pricing-meta">
@@ -444,7 +508,7 @@ class gemas_Widget_Pricing extends Widget_Base {
                                     <li><i class="fas fa-check"></i><?php echo $feature['feature_4'] ?></li>
                                  <?php } ?>
                               </ul>
-                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $btn_url_4 ) ?>"><?php echo esc_html( $btn_text_4 ) ?></a></div>
+                              <div class="ct-pricing-button"> <a class="btn btn-default" href="<?php echo esc_url( $settings['btn_url_4'] ) ?>"><?php echo esc_html( $settings['btn_text_4'] ) ?></a></div>
                           </div>
                       </div>
 
