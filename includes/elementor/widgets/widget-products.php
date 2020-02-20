@@ -102,7 +102,7 @@ class gemas_Widget_Product extends Widget_Base {
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-9">
                       <div class="section-title text-center mb-65">
-                          <span>><?php echo esc_html($settings['sub-title']); ?></span>
+                          <span><?php echo esc_html($settings['sub-title']); ?></span>
                           <h2><?php echo esc_html($settings['title']); ?></h2>
                           <p><?php echo esc_html($settings['text']); ?></p>
                       </div>
