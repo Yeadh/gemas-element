@@ -100,7 +100,7 @@ class gemas_Widget_Blog extends Widget_Base {
               ?>
 
                   <div class="col-lg-4 col-md-6">
-                      <div class="blog-post">
+                      <div class="blog-post mb-30">
                           <?php if (has_post_thumbnail()): ?>
                           <div class="blog-thumb">
                               <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'gemas-404x297'); ?>" alt="<?php the_title_attribute() ?>"></a>
