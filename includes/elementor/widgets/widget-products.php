@@ -136,7 +136,7 @@ class gemas_Widget_Product extends Widget_Base {
                 $product_terms = get_the_terms( get_the_ID() , 'product_cat' ); 
                 $categories = get_the_category();
                 global $product;?>
-                  <div class="col-lg-4 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
+                  <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
                       <div class="product-item mb-40">
                           <div class="product-thumb">
                               <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'gemas-403,256' ) ?></a>
