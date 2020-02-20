@@ -139,7 +139,7 @@ class gemas_Widget_Product extends Widget_Base {
                   <div class="col-lg-4 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
                       <div class="product-item mb-40">
                           <div class="product-thumb">
-                              <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'gemas-404x297' ) ?></a>
+                              <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'gemas-403,256' ) ?></a>
                           </div>
                           <div class="product-item-content">
                               <div class="product-cat mb-10">
